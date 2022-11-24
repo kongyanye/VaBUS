@@ -1,0 +1,15 @@
+# Python dependencies required for development
+opencv-python # for cloud, already installed on jetson
+flask
+pyyaml
+torch
+torchvision # for cloud, install prebuild wheel on jetson
+requests # for cloud, install prebuild wheel on jetson
+imageio
+imageio-ffmpeg
+pandas
+numpy
+#psutil #for cloud, run with `sudo -H pip3 install <package>`
+#GPUtil #for cloud, run with `sudo -H pip3 install <package>`
+#jetson-stats # for jetson, run with `sudo -H pip3 install <package>`
+filterpy

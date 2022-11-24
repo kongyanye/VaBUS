@@ -1,0 +1,456 @@
+./decoder/decoder.py:from abc import abstractmethod
+./decoder/decoder.py:import argparse
+./decoder/decoder.py:import logging
+./decoder/decoder.py:import multiprocessing
+./decoder/decoder.py:import sys
+./decoder/decoder.py:import time
+./decoder/decoder.py:from typing import List
+./decoder/decoder.py:import torch
+./decoder/decoder.py:from .. import annotation, visualizer
+./decoder/utils/caf_scored.py:import logging
+./decoder/utils/caf_scored.py:import time
+./decoder/utils/caf_scored.py:from typing import List
+./decoder/utils/caf_scored.py:import numpy as np
+./decoder/utils/caf_scored.py:# pylint: disable=import-error
+./decoder/utils/caf_scored.py:import pyximport
+./decoder/utils/caf_scored.py:pyximport.install()
+./decoder/utils/caf_scored.py:from ...functional import scalar_values
+./decoder/utils/caf_scored.py:from ... import headmeta
+./decoder/utils/occupancy.py:import logging
+./decoder/utils/occupancy.py:import numpy as np
+./decoder/utils/occupancy.py:from ...functional import scalar_nonzero_clipped_with_reduction
+./decoder/utils/instance_scorer.py:import copy
+./decoder/utils/instance_scorer.py:import json
+./decoder/utils/instance_scorer.py:import numpy as np
+./decoder/utils/instance_scorer.py:import torch
+./decoder/utils/cif_seeds.py:import logging
+./decoder/utils/cif_seeds.py:import time
+./decoder/utils/cif_seeds.py:# pylint: disable=import-error
+./decoder/utils/cif_seeds.py:from ...functional import scalar_values
+./decoder/utils/cif_seeds.py:from .cif_hr import CifHr
+./decoder/utils/cif_seeds.py:from ... import headmeta
+./decoder/utils/cif_seeds.py:from ...visualizer import seeds
+./decoder/utils/caf_seeds.py:import logging
+./decoder/utils/caf_seeds.py:import time
+./decoder/utils/caf_seeds.py:import numpy as np
+./decoder/utils/cif_hr.py:import logging
+./decoder/utils/cif_hr.py:import time
+./decoder/utils/cif_hr.py:import numpy as np
+./decoder/utils/cif_hr.py:# pylint: disable=import-error
+./decoder/utils/cif_hr.py:from ...functional import scalar_square_add_gauss_with_max
+./decoder/utils/cif_hr.py:from ...visualizer import cifhr
+./decoder/utils/nms.py:import logging
+./decoder/utils/nms.py:import time
+./decoder/utils/nms.py:import numpy as np
+./decoder/utils/nms.py:from .occupancy import Occupancy
+./decoder/profiler_autograd.py:import logging
+./decoder/profiler_autograd.py:import torch
+./decoder/cifcaf.py:import argparse
+./decoder/cifcaf.py:from collections import defaultdict
+./decoder/cifcaf.py:import heapq
+./decoder/cifcaf.py:import logging
+./decoder/cifcaf.py:import time
+./decoder/cifcaf.py:from typing import List
+./decoder/cifcaf.py:import numpy as np
+./decoder/cifcaf.py:from .decoder import Decoder
+./decoder/cifcaf.py:from ..annotation import Annotation
+./decoder/cifcaf.py:from .utils import nms as nms
+./decoder/cifcaf.py:from .utils.caf_scored import CafScored
+./decoder/cifcaf.py:from .utils.cif_seeds import CifSeeds
+./decoder/cifcaf.py:from .utils.cif_hr import CifHr
+./decoder/cifcaf.py:from .utils.occupancy import Occupancy as UtilsOccupancy
+./decoder/cifcaf.py:from .. import headmeta
+./decoder/cifcaf.py:from ..visualizer.occupancy import Occupancy as VisualizerOccupancy
+./decoder/cifcaf.py:from ..visualizer.cif import Cif
+./decoder/cifcaf.py:from ..visualizer.caf import Caf
+./decoder/cifcaf.py:# pylint: disable=import-error
+./decoder/cifcaf.py:from ..functional import caf_center_s, grow_connection_blend
+./decoder/cifdet.py:from collections import defaultdict
+./decoder/cifdet.py:import logging
+./decoder/cifdet.py:import time
+./decoder/cifdet.py:from typing import List
+./decoder/cifdet.py:from .decoder import Decoder
+./decoder/cifdet.py:from . import utils
+./decoder/cifdet.py:from annotation import AnnotationDet
+./decoder/cifdet.py:import headmeta, visualizer
+./decoder/profiler.py:import cProfile
+./decoder/profiler.py:import io
+./decoder/profiler.py:import logging
+./decoder/profiler.py:import pstats
+./decoder/factory.py:import logging
+./decoder/factory.py:from .cifcaf import CifCaf
+./decoder/factory.py:from .cifdet import CifDet
+./decoder/factory.py:from .decoder import Decoder
+./decoder/factory.py:from .multi import Multi
+./decoder/factory.py:from . import utils
+./decoder/factory.py:from .profiler import Profiler
+./decoder/factory.py:from .profiler_autograd import ProfilerAutograd
+./decoder/multi.py:import logging
+./decoder/multi.py:from .decoder import Decoder
+./contrib/cifar10/basenet.py:import torch
+./contrib/cifar10/basenet.py:import openpifpaf
+./contrib/cifar10/__init__.py:import openpifpaf
+./contrib/cifar10/__init__.py:from . import datamodule
+./contrib/cifar10/__init__.py:from . import basenet
+./contrib/cifar10/datamodule.py:import argparse
+./contrib/cifar10/datamodule.py:import numpy as np
+./contrib/cifar10/datamodule.py:import torch
+./contrib/cifar10/datamodule.py:import torchvision
+./contrib/cifar10/datamodule.py:import openpifpaf
+./contrib/__init__.py:from . import cifar10
+./export_onnx.py:import argparse
+./export_onnx.py:import logging
+./export_onnx.py:import shutil
+./export_onnx.py:import torch
+./export_onnx.py:import openpifpaf.network
+./export_onnx.py:#import network
+./export_onnx.py:    import onnx
+./export_onnx.py:    import onnx.utils
+./export_onnx.py:    import onnxsim
+./visualizer/cifhr.py:import logging
+./visualizer/cifhr.py:from .base import Base
+./visualizer/occupancy.py:import logging
+./visualizer/occupancy.py:from .base import Base
+./visualizer/cli.py:from .base import Base
+./visualizer/cli.py:from .caf import Caf
+./visualizer/cli.py:from .cif import Cif
+./visualizer/cli.py:from .cifdet import CifDet
+./visualizer/cli.py:from .cifhr import CifHr
+./visualizer/cli.py:from .occupancy import Occupancy
+./visualizer/cli.py:from .seeds import Seeds
+./visualizer/cif.py:import copy
+./visualizer/cif.py:import logging
+./visualizer/cif.py:from .base import Base
+./visualizer/cif.py:from ..annotation import Annotation
+./visualizer/cif.py:from .. import headmeta
+./visualizer/cif.py:from ..show.painters import AnnotationPainter, KeypointPainter
+./visualizer/cif.py:from ..show.fields import boxes, margins, quiver
+./visualizer/cifdet.py:import logging
+./visualizer/cifdet.py:from .base import Base
+./visualizer/cifdet.py:from annotation import AnnotationDet
+./visualizer/cifdet.py:import headmeta, show
+./visualizer/base.py:from contextlib import contextmanager
+./visualizer/base.py:import logging
+./visualizer/base.py:from typing import List
+./visualizer/base.py:import numpy as np
+./visualizer/base.py:from .. import annotation, show
+./visualizer/caf.py:import copy
+./visualizer/caf.py:import logging
+./visualizer/caf.py:from .base import Base
+./visualizer/caf.py:from ..annotation import Annotation
+./visualizer/caf.py:from .. import headmeta
+./visualizer/caf.py:from ..show.painters import AnnotationPainter, KeypointPainter
+./visualizer/caf.py:from ..show.fields import boxes, quiver
+./visualizer/seeds.py:import logging
+./visualizer/seeds.py:from .base import Base
+./visualizer/seeds.py:from .. import show
+./onnx_to_tensorrt_whl.py:from __future__ import print_function
+./onnx_to_tensorrt_whl.py:import os
+./onnx_to_tensorrt_whl.py:import argparse
+./onnx_to_tensorrt_whl.py:import tensorrt as trt
+./count_ops.py:import argparse
+./count_ops.py:import torch
+./count_ops.py:import openpifpaf
+./count_ops.py:    import thop
+./logger.py:import argparse
+./logger.py:import logging
+./logger.py:import socket
+./logger.py:import sys
+./logger.py:        # pylint: disable=import-outside-toplevel
+./logger.py:        from pythonjsonlogger import jsonlogger
+./logger.py:    # pylint: disable=import-outside-toplevel,cyclic-import
+./logger.py:    from pythonjsonlogger import jsonlogger
+./logger.py:    from . import __version__
+./logger.py:    from .plugins import versions as plugin_versions
+./encoder/__init__.py:from .annrescaler import AnnRescaler, AnnRescalerDet
+./encoder/__init__.py:from .factory import cli, configure
+./encoder/__init__.py:from .caf import Caf
+./encoder/__init__.py:from .cif import Cif
+./encoder/__init__.py:from .cifdet import CifDet
+./encoder/cif.py:import dataclasses
+./encoder/cif.py:import logging
+./encoder/cif.py:from typing import ClassVar
+./encoder/cif.py:import numpy as np
+./encoder/cif.py:import torch
+./encoder/cif.py:from .annrescaler import AnnRescaler
+./encoder/cif.py:import headmeta
+./encoder/cif.py:from visualizer import Cif as CifVisualizer
+./encoder/cif.py:from utils import create_sink, mask_valid_area
+./encoder/cifdet.py:import dataclasses
+./encoder/cifdet.py:import logging
+./encoder/cifdet.py:from typing import ClassVar
+./encoder/cifdet.py:import numpy as np
+./encoder/cifdet.py:import torch
+./encoder/cifdet.py:from .annrescaler import AnnRescalerDet
+./encoder/cifdet.py:import headmeta
+./encoder/cifdet.py:from visualizer import CifDet as CifDetVisualizer
+./encoder/cifdet.py:from utils import create_sink, mask_valid_area
+./encoder/caf.py:import dataclasses
+./encoder/caf.py:import logging
+./encoder/caf.py:from typing import ClassVar
+./encoder/caf.py:import numpy as np
+./encoder/caf.py:import torch
+./encoder/caf.py:from .annrescaler import AnnRescaler
+./encoder/caf.py:import headmeta
+./encoder/caf.py:from visualizer import Caf as CafVisualizer
+./encoder/caf.py:from utils import create_sink, mask_valid_area
+./encoder/factory.py:import logging
+./encoder/factory.py:from .annrescaler import AnnRescaler
+./encoder/factory.py:from .caf import Caf
+./encoder/factory.py:from .cif import Cif
+./encoder/annrescaler.py:import logging
+./encoder/annrescaler.py:import numpy as np
+./datasets/cocokp.py:import argparse
+./datasets/cocokp.py:import torch
+./datasets/cocokp.py:from .module import DataModule
+./datasets/cocokp.py:import encoder, headmeta, metric, transforms
+./datasets/cocokp.py:from .coco import Coco
+./datasets/cocokp.py:from .collate import collate_images_anns_meta, collate_images_targets_meta
+./datasets/cocokp.py:from .constants import (
+./datasets/cocokp.py:    import pycocotools.coco
+./datasets/coco.py:from collections import defaultdict
+./datasets/coco.py:import copy
+./datasets/coco.py:import logging
+./datasets/coco.py:import os
+./datasets/coco.py:import torch.utils.data
+./datasets/coco.py:from PIL import Image
+./datasets/coco.py:import sys
+./datasets/coco.py:import transforms, utils
+./datasets/coco.py:        from pycocotools.coco import COCO  # pylint: disable=import-outside-toplevel
+./datasets/collate.py:import torch
+./datasets/module.py:import argparse
+./datasets/module.py:from typing import List
+./datasets/module.py:import torch
+./datasets/module.py:import headmeta, metric
+./datasets/torch_dataset.py:import logging
+./datasets/torch_dataset.py:import torch.utils.data
+./datasets/torch_dataset.py:import transforms
+./datasets/multiloader.py:import logging
+./datasets/multiloader.py:import numpy as np
+./datasets/constants.py:import numpy as np
+./datasets/constants.py:    from .. import show  # pylint: disable=import-outside-toplevel
+./datasets/constants.py:    from ..annotation import Annotation  # pylint: disable=import-outside-toplevel
+./datasets/constants.py:    from .. import show  # pylint: disable=import-outside-toplevel
+./datasets/image_list.py:import PIL
+./datasets/image_list.py:import torch
+./datasets/image_list.py:from .. import transforms
+./datasets/factory.py:from .cocodet import CocoDet
+./datasets/factory.py:from .cocokp import CocoKp
+./datasets/factory.py:from .module import DataModule
+./datasets/factory.py:from .multiloader import MultiLoader
+./datasets/factory.py:from .multimodule import MultiDataModule
+./datasets/cocodet.py:import argparse
+./datasets/cocodet.py:import torch
+./datasets/cocodet.py:from .module import DataModule
+./datasets/cocodet.py:import encoder, headmeta, metric, transforms
+./datasets/cocodet.py:from .coco import Coco
+./datasets/cocodet.py:from .cocokp import CocoKp
+./datasets/cocodet.py:from .collate import collate_images_anns_meta, collate_images_targets_meta
+./datasets/cocodet.py:from .constants import (
+./datasets/cocodet.py:    import pycocotools.coco
+./datasets/multimodule.py:import logging
+./datasets/multimodule.py:from typing import List
+./datasets/multimodule.py:from .module import DataModule
+./datasets/multimodule.py:from .multiloader import MultiLoader
+./eval.py:import argparse
+./eval.py:import json
+./eval.py:import logging
+./eval.py:import os
+./eval.py:import sys
+./eval.py:import time
+./eval.py:import PIL
+./eval.py:import thop
+./eval.py:import torch
+./eval.py:from . import datasets, decoder, logger, network, plugins, show, transforms, visualizer, __version__
+./annotation.py:import numpy as np
+./annotation.py:# pylint: disable=import-error
+./annotation.py:import pyximport
+./annotation.py:pyximport.install()
+./annotation.py:from .functional import scalar_value_clipped
+./trt_decoder.py:import pickle
+./trt_decoder.py:from .decoder import cifcaf
+./plugins.py:import importlib
+./plugins.py:import pkgutil
+./plugins.py:    from . import contrib  # pylint: disable=import-outside-toplevel,cyclic-import
+./plugins.py:            importlib.import_module('openpifpaf.contrib.{}'.format(name))
+./plugins.py:        name: importlib.import_module(name)
+./openpifpaf.py:import random
+./openpifpaf.py:import torch
+./openpifpaf.py:import numpy as np
+./openpifpaf.py:import cv2
+./openpifpaf.py:import threading
+./openpifpaf.py:import pycuda.driver as cuda
+./openpifpaf.py:import PIL
+./openpifpaf.py:import tensorrt as trt
+./openpifpaf.py:from .trt_decoder import CifCafDecoder
+./openpifpaf.py:from .datasets.collate import collate_images_anns_meta
+./openpifpaf.py:from .datasets.image_list import PilImageList
+./network/basenetworks.py:import argparse
+./network/basenetworks.py:import logging
+./network/basenetworks.py:import torch
+./network/basenetworks.py:import torchvision.models
+./network/__init__.py:from .basenetworks import BaseNetwork
+./network/__init__.py:from .factory import cli, configure, factory, factory_from_args, local_checkpoint_path
+./network/__init__.py:from .heads import HeadNetwork
+./network/__init__.py:from .nets import Shell
+./network/__init__.py:from .trainer import Trainer
+./network/__init__.py:from . import losses
+./network/losses.py:import logging
+./network/losses.py:import torch
+./network/losses.py:import heads
+./network/losses.py:        secondary tasks, you can reduce their importance by choosing a
+./network/losses.py:        secondary tasks, you can reduce their importance by choosing a
+./network/nets.py:import logging
+./network/nets.py:import torch
+./network/nets.py:import heads
+./network/nets.py:import datasets
+./network/factory.py:import logging
+./network/factory.py:import os
+./network/factory.py:from typing import Tuple
+./network/factory.py:import warnings
+./network/factory.py:import torch
+./network/factory.py:import torchvision
+./network/factory.py:import headmeta
+./network/factory.py:import sys
+./network/factory.py:import basenetworks, heads, nets
+./network/heads.py:import argparse
+./network/heads.py:import functools
+./network/heads.py:import logging
+./network/heads.py:import math
+./network/heads.py:import numpy as np
+./network/heads.py:import torch
+./network/heads.py:import headmeta
+./network/trainer.py:import copy
+./network/trainer.py:import hashlib
+./network/trainer.py:import logging
+./network/trainer.py:import shutil
+./network/trainer.py:import time
+./network/trainer.py:import warnings
+./network/trainer.py:import torch
+./metric/classification.py:import logging
+./metric/classification.py:from .base import Base
+./metric/coco.py:import logging
+./metric/coco.py:import json
+./metric/coco.py:import zipfile
+./metric/coco.py:import numpy as np
+./metric/coco.py:from .base import Base
+./metric/coco.py:    import pycocotools.coco
+./metric/coco.py:    from pycocotools.cocoeval import COCOeval
+./metric/coco.py:        # from pycocotools.cocoeval import COCOeval
+./metric/__init__.py:from .base import Base
+./metric/__init__.py:from .coco import Coco
+./metric/__init__.py:from .classification import Classification
+./transforms/scale.py:import copy
+./transforms/scale.py:import logging
+./transforms/scale.py:import warnings
+./transforms/scale.py:import numpy as np
+./transforms/scale.py:import PIL
+./transforms/scale.py:import scipy.ndimage
+./transforms/scale.py:import torch
+./transforms/scale.py:from .preprocess import Preprocess
+./transforms/toannotations.py:import numpy as np
+./transforms/toannotations.py:from ..annotation import Annotation, AnnotationCrowd, AnnotationDet
+./transforms/toannotations.py:from .preprocess import Preprocess
+./transforms/encoders.py:from .preprocess import Preprocess
+./transforms/random.py:import logging
+./transforms/random.py:import torch
+./transforms/random.py:from .preprocess import Preprocess
+./transforms/hflip.py:import copy
+./transforms/hflip.py:import logging
+./transforms/hflip.py:import numpy as np
+./transforms/hflip.py:import PIL
+./transforms/hflip.py:from .preprocess import Preprocess
+./transforms/rotate.py:import copy
+./transforms/rotate.py:import logging
+./transforms/rotate.py:import math
+./transforms/rotate.py:import numpy as np
+./transforms/rotate.py:import PIL
+./transforms/rotate.py:import scipy
+./transforms/rotate.py:import torch
+./transforms/rotate.py:from .preprocess import Preprocess
+./transforms/rotate.py:from . import utils
+./transforms/crop.py:import copy
+./transforms/crop.py:import logging
+./transforms/crop.py:import numpy as np
+./transforms/crop.py:import torch
+./transforms/crop.py:from .preprocess import Preprocess
+./transforms/unclipped.py:import copy
+./transforms/unclipped.py:import logging
+./transforms/unclipped.py:import numpy as np
+./transforms/unclipped.py:from .preprocess import Preprocess
+./transforms/__init__.py:import torchvision
+./transforms/__init__.py:from .annotations import AnnotationJitter, NormalizeAnnotations
+./transforms/__init__.py:from .compose import Compose
+./transforms/__init__.py:from .crop import Crop
+./transforms/__init__.py:from .encoders import Encoders
+./transforms/__init__.py:from .hflip import HFlip
+./transforms/__init__.py:from .image import Blur, ImageTransform, JpegCompression
+./transforms/__init__.py:from .minsize import MinSize
+./transforms/__init__.py:from .multi_scale import MultiScale
+./transforms/__init__.py:from .pad import CenterPad, CenterPadTight, SquarePad
+./transforms/__init__.py:from .preprocess import Preprocess
+./transforms/__init__.py:from .random import DeterministicEqualChoice, RandomApply
+./transforms/__init__.py:from .rotate import RotateBy90
+./transforms/__init__.py:from .scale import RescaleAbsolute, RescaleRelative, ScaleMix
+./transforms/__init__.py:from .toannotations import ToAnnotations, ToCrowdAnnotations, ToDetAnnotations, ToKpAnnotations
+./transforms/__init__.py:from .unclipped import UnclippedArea, UnclippedSides
+./transforms/annotations.py:import copy
+./transforms/annotations.py:import logging
+./transforms/annotations.py:import numpy as np
+./transforms/annotations.py:import torch
+./transforms/annotations.py:from .. import annotation
+./transforms/annotations.py:from .preprocess import Preprocess
+./transforms/utils.py:import math
+./transforms/utils.py:import numpy as np
+./transforms/pad.py:import copy
+./transforms/pad.py:import math
+./transforms/pad.py:import logging
+./transforms/pad.py:import torchvision
+./transforms/pad.py:from .preprocess import Preprocess
+./transforms/preprocess.py:from abc import ABCMeta, abstractmethod
+./transforms/preprocess.py:import copy
+./transforms/preprocess.py:import math
+./transforms/preprocess.py:import numpy as np
+./transforms/preprocess.py:from ..annotation import AnnotationCrowd, AnnotationDet
+./transforms/preprocess.py:import utils
+./transforms/compose.py:from .preprocess import Preprocess
+./transforms/minsize.py:import copy
+./transforms/minsize.py:import logging
+./transforms/minsize.py:from .preprocess import Preprocess
+./transforms/multi_scale.py:from .preprocess import Preprocess
+./transforms/image.py:import io
+./transforms/image.py:import logging
+./transforms/image.py:import numpy as np
+./transforms/image.py:import PIL
+./transforms/image.py:import scipy
+./transforms/image.py:import torch
+./transforms/image.py:from .preprocess import Preprocess
+./utils.py:import functools
+./utils.py:import math
+./utils.py:import numpy as np
+./show/painters.py:from collections import defaultdict
+./show/painters.py:import logging
+./show/painters.py:import numpy as np
+./show/cli.py:import logging
+./show/cli.py:from .animation_frame import AnimationFrame
+./show/cli.py:from .canvas import Canvas
+./show/cli.py:from .painters import KeypointPainter
+./show/fields.py:import logging
+./show/fields.py:import numpy as np
+./show/canvas.py:from contextlib import contextmanager
+./show/canvas.py:import logging
+./show/canvas.py:import os
+./show/canvas.py:import numpy as np
+./show/animation_frame.py:import logging
+./benchmark.py:import argparse
+./benchmark.py:import datetime
+./benchmark.py:import json
+./benchmark.py:import logging
+./benchmark.py:import os
+./benchmark.py:import subprocess
+./benchmark.py:import pysparkling
+./benchmark.py:from . import __version__
+./headmeta.py:from dataclasses import dataclass, field
+./headmeta.py:from typing import Any, ClassVar, List, Tuple
+./optimize.py:import logging
+./optimize.py:import torch

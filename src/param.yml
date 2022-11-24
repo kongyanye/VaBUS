@@ -1,0 +1,64 @@
+# video_path: the video to run
+#video_path: camera
+video_path: ../dataset/VIRAT/VIRAT_S_010106_00_000098_000315.mp4
+# task: OT (Object Detection) or KD (Keypoint Detection)
+task: OD
+# model (only for OD), must be yolo, d0 or d3
+model_type: yolo
+# read batches from read_start, default 0 to read from beginning
+read_start: 0
+# number of image batches to run, set to -1 to run all
+num_batch: 60
+# macro_size is the unit to compute roi
+macro_size: 16
+# thresh is the threshold to tranform diff_smooth into binary mask
+thresh_diff_smooth: 30
+# resize the input frames, can be set to None, a ratio or [height, width]
+input_size: [406, 720]
+# number of images to process at the same time in video
+batch_size: 15
+# fps to show
+fps: 15
+# pixel value thresh in roi considered to be black
+thresh_roi_black: 30
+# run_type, must be 'emulation' (transfer with disk files) or 
+# 'implementation' (transfer via http)
+run_type: implementation
+# remote host IP (for implementation mode only)
+hname: 10.0.0.1
+# remote host port (for implementation mode only)
+port: 5000
+# iou threshold to consider a bounding box is correctly detected
+iou_th: 0.5
+# oks threshold to consider a human skeleton is correctly detected
+oks_th: 0.5
+# whether ground truth results are available
+ground_truth_avail: True
+# whether to use hardware accleration for video encoding
+# only valid for jetson
+encode_hardware_acceleration: True
+# whether to enable background subtractor on the edge
+enable_bg_sub: True
+# whether to enable background overlay on edge and cloud
+enable_bg_overlay: True
+# whether to enable adaptive weighting module
+enable_aw: True
+# the ratio of bg_sub, bg_overlay and aw to perform, [0,1]
+aw_ratio: 1
+# whether to enable offline estimation module
+enable_oe: False
+# whether to show graphical results on edge
+show_edge: False
+# whether to show graphical results on cloud
+show_cloud: False
+# whether to enable adaptive RoI encoding
+enable_roi_enc: True
+# where to save performance results (only effective when ground truth
+# results are available)
+res_dir: ../results/tmp
+# whether to save intermediate results on edge and cloud
+save_intermediate: False
+# which oe method to use
+oe_method: mv_oe
+# image format of img dir dataset
+img_type: png
